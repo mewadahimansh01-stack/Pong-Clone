@@ -1,9 +1,22 @@
 #pragma once
 #include "logo.hpp"
 #include <SFML/Graphics.hpp>
-#include <random>
 #include <chrono>
+#include <random>
+#include <sstream>
 #include <thread>
+
+static const inline void displayScore(const int *score, sf::Font &font,
+                                      sf::RenderWindow &window) {
+  std::stringstream current{""};
+  current << score[0] << "\t\t\t" << score[1];
+  sf::Text current_text(font, current.str(), 30);
+  current_text.setPosition(
+      {static_cast<float>(window.getSize().x / 2.F -
+                          current_text.getGlobalBounds().size.x / 2),
+       20.F});
+  window.draw(current_text);
+}
 
 constexpr auto backgroundColor(sf::Color(44, 62, 80, 1));
 constexpr double speed{5};
@@ -11,7 +24,7 @@ constexpr double ballDimension{15};
 constexpr int frameRate{60};
 constexpr auto up{sf::Vector2f({0, -speed})};
 constexpr auto down{sf::Vector2f({0, +speed})};
-constexpr double oSpeed{speed/2 /*Slowpoke*/};
+constexpr double oSpeed{speed / 2 /*Slowpoke*/};
 constexpr auto oUp{sf::Vector2f({0, -oSpeed})};
 constexpr auto oDown{sf::Vector2f({0, +oSpeed})};
 static auto paddle{sf::RectangleShape({10, 80})};
@@ -62,7 +75,9 @@ static const inline void ballMovement(sf::RenderWindow &window,
        ballPosition.x >= playerPosition.x &&
        ballPosition.y + ballSize.y >= playerPosition.y &&
        ballPosition.y <= playerPosition.y + playerSize.y)) {
-    ballSpeed.x = -ballSpeed.x + ((ballSpeed.x < -(speed - 0.51 /*Safety Net*/)) ? acceleration: 0);
+    ballSpeed.x =
+        -ballSpeed.x +
+        ((ballSpeed.x < -(speed - 0.51 /*Safety Net*/)) ? acceleration : 0);
     const auto hitpos{(ballPosition.y - playerPosition.y - playerSize.y / 2.F) /
                       playerSize.y};
     ballSpeed.y = speed * hitpos * taperingFactor;
@@ -72,7 +87,9 @@ static const inline void ballMovement(sf::RenderWindow &window,
        ballPosition.x <= opponentPosition.x + opponentSize.x &&
        ballPosition.y + ballSize.y >= opponentPosition.y &&
        ballPosition.y <= opponentPosition.y + opponentSize.y)) {
-    ballSpeed.x = -ballSpeed.x - ((ballSpeed.x < (speed - 0.51 /*Safety Net*/)) ? acceleration: 0);
+    ballSpeed.x =
+        -ballSpeed.x -
+        ((ballSpeed.x < (speed - 0.51 /*Safety Net*/)) ? acceleration : 0);
     const auto hitpos{(ballPosition.y - playerPosition.y - playerSize.y / 2.F) /
                       playerSize.y};
     ballSpeed.y = speed * hitpos * taperingFactor;
@@ -104,7 +121,7 @@ static const inline void ballMovement(sf::RenderWindow &window,
     std::uniform_real_distribution<float> dist(-1.F, 1.F);
     std::uniform_int_distribution<int> distr(-1, 1);
     ballSpeed.y = dist(engine) * ballSpeedDefault.y;
-    ballSpeed.x = distr(engine)* ballSpeedDefault.x;
+    ballSpeed.x = distr(engine) * ballSpeedDefault.x;
     std::this_thread::sleep_for(std::chrono::microseconds(1));
   }
 

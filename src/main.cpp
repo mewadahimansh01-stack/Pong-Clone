@@ -1,7 +1,6 @@
+#include "IosevkaCharonMono-Regular.hpp"
 #include "helper.hpp"
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <sstream>
 
 int main() {
   sf::RenderWindow window(setWindow());
@@ -12,7 +11,11 @@ int main() {
 
   sf::Vector2f ballSpeed = {5, 5};
   int score[] = {0 /*Player Score*/, 0 /*Opponent Score*/};
-  sf::Font font("/home/himansh/Desktop/Pong-Clone/Iosevka_Charon_Mono/IosevkaCharonMono-Italic.ttf");
+  sf::Font font;
+  if (!font.openFromMemory(IosevkaCharonMono_Regular, 1443296)) {
+    window.close();
+    return 0;
+  }
 
   while (window.isOpen()) {
     while (const std::optional event = window.pollEvent()) {
@@ -32,11 +35,7 @@ int main() {
     ballMovement(window, player, opponent, ball, ballSpeed, score);
     opponentMovementControl(ball, opponent, window);
 
-    std::stringstream current{""};
-    current << score[0] << "\t\t\t" << score[1];
-    sf::Text current_text(font, current.str(), 30);
-    current_text.setPosition({static_cast<float>(window.getSize().x / 2.F - current_text.getGlobalBounds().size.x / 2), 20.F});
-    window.draw(current_text);
+    displayScore(score, font, window);
 
     window.display();
   }
