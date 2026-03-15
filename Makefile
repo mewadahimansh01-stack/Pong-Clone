@@ -1,7 +1,7 @@
 .PHONY: build run clean all format
 
 build:
-	cmake -G Ninja -S . -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+	cmake -G Ninja -S . -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 	cmake --build build/
 
 run:
