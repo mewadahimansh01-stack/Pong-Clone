@@ -25,6 +25,7 @@ A classic Pong recreation developed using **C++** and the **SFML** (Simple and F
 
 
 ## 🚀 Getting Started
+---
 
 ### Building the Project
 
@@ -34,7 +35,7 @@ The project uses `CMake` and a `Makefile` for easy compilation. To build the exe
 make build
 
 ```
-
+---
 ### Running the Game
 
 Once built, you can launch the game using:
@@ -43,7 +44,7 @@ Once built, you can launch the game using:
 make run
 
 ```
-
+---
 ### Cleaning Build Files
 
 To remove the `build/` directory and start fresh:
@@ -52,7 +53,7 @@ To remove the `build/` directory and start fresh:
 make clean
 
 ```
-
+---
 
 ## 🕹️ Controls
 
@@ -85,7 +86,7 @@ make clean
 
 Contributions are welcome and appreciated! Whether you're fixing a bug, improving the AI, or adding new features, here is how you can help: 
 
-
+---
 ### 🛠️ Development Workflow
 
 1. **Fork the Repository**: Create your own copy of the project to work on. 
@@ -112,7 +113,7 @@ Contributions are welcome and appreciated! Whether you're fixing a bug, improvin
 
 5. **Submit a Pull Request**: Provide a clear description of your changes and why they are beneficial. 
 
-
+---
 
 
 ### 📝 Contribution Guidelines
@@ -129,7 +130,7 @@ Contributions are welcome and appreciated! Whether you're fixing a bug, improvin
 * **Attribution**: If you use assets or fonts, ensure they are compatible with the **SIL Open Font License** or similar open-source terms. 
 
 
-
+---
 
 ### 🐛 Reporting Issues
 
@@ -138,3 +139,4 @@ If you find a bug or have a suggestion, please open an **Issue** on the reposito
 * Your Operating System.
 * Steps to reproduce the issue.
 * Expected vs. actual behavior.
+---
