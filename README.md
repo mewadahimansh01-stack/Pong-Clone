@@ -25,7 +25,7 @@ A classic Pong recreation developed using **C++** and the **SFML** (Simple and F
 
 
 ## 🚀 Getting Started
----
+
 
 ### Building the Project
 
@@ -53,7 +53,7 @@ To remove the `build/` directory and start fresh:
 make clean
 
 ```
----
+
 
 ## 🕹️ Controls
 
@@ -86,7 +86,7 @@ make clean
 
 Contributions are welcome and appreciated! Whether you're fixing a bug, improving the AI, or adding new features, here is how you can help: 
 
----
+
 ### 🛠️ Development Workflow
 
 1. **Fork the Repository**: Create your own copy of the project to work on. 
@@ -139,4 +139,4 @@ If you find a bug or have a suggestion, please open an **Issue** on the reposito
 * Your Operating System.
 * Steps to reproduce the issue.
 * Expected vs. actual behavior.
----
+
