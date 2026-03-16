@@ -1,6 +1,6 @@
 #pragma once
 
-// CC0 Licensed
+// CC0 Licensed, imported from svg repo
 #define LOGO_HEIGHT 64
 #define LOGO_WIDTH 64
 
